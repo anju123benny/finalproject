@@ -1,0 +1,212 @@
+@if(session()->has('email'))
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello World</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="students/css/bootstrap.min.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="students/css/font-awesome.min.css">
+
+    <!-- ElegantFonts CSS -->
+    <link rel="stylesheet" href="students/css/elegant-fonts.css">
+
+    <!-- themify-icons CSS -->
+    <link rel="stylesheet" href="students/css/themify-icons.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="students/css/swiper.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="students/style.css">
+</head>
+<body class="courses-page">
+    <div class="page-header">
+        <header class="site-header">
+            <div class="top-header-bar">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
+                            <div class="header-bar-email d-flex align-items-center">
+                                <i class="fa fa-envelope"></i><a href="#">{{session()->get('email')}}</a>
+                            </div><!-- .header-bar-email -->
+
+                            <div class="header-bar-text lg-flex align-items-center">
+                                <p><i class="fa fa-phone"></i>+91 9745521835 </p>
+                            </div><!-- .header-bar-text -->
+                        </div><!-- .col -->
+
+                       <!-- .header-bar-search -->
+
+                          <!-- .header-bar-menu -->
+                        <!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container-fluid -->
+            </div><!-- .top-header-bar -->
+
+            <div class="nav-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-9 col-lg-3">
+                            <div class="site-branding">
+                                <h1 class="site-title"><a href="/students" rel="home">Improve</a></h1>
+                            </div><!-- .site-branding -->
+                        </div><!-- .col -->
+
+                        <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
+                            <nav class="site-navigation flex justify-content-end align-items-center">
+                                <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+                                    <li class="current-menu-item"><a href="/students">Home</a></li>
+                                    <li><a href="/student.profile">Profile</a></li>
+                                    <li><a href="/student.course">Course</a></li>
+                                    <li><a href="home.home">Logout</a></li>
+                                    
+                                </ul>
+
+                                <div class="hamburger-menu d-lg-none">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div><!-- .hamburger-menu -->
+
+                                <div class="header-bar-cart">
+                                    <a href="#" class="flex justify-content-center align-items-center"><span aria-hidden="true" class="icon_bag_alt"></span></a>
+                                </div><!-- .header-bar-search -->
+                            </nav><!-- .site-navigation -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .nav-bar -->
+        </header><!-- .site-header -->
+
+        <div class="page-header-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                    @foreach($course as $courses)
+                   
+                   
+                        <header class="entry-header">
+                            <h1 class="entry-title">{{$courses->name}}</h1>
+
+                            <div class="ratings flex justify-content-center align-items-center">
+                              
+                            </div><!-- .ratings -->
+                        </header><!-- .entry-header -->
+                        
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .page-header-overlay -->
+    </div><!-- .page-header -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 offset-lg-1 col-lg-10">
+                <div class="featured-image">
+                @if(!empty($courses->image))
+                                 <img src="/upload/{{$courses->image}}" style="height:500px;width:900px;">
+                                 @endif
+
+                    
+                </div>
+            </div><!-- .col -->
+        </div><!-- .row -->
+
+        <div class="row">
+            <div class="col-12 offset-lg-1 col-lg-1">
+                <div class="post-share">
+                   
+
+                   
+                </div><!-- .post-share -->
+            </div><!-- .col -->
+            
+            <div class="col-12 col-lg-8">
+                <div class="single-course-wrap">
+                    <div class="course-info flex flex-wrap align-items-center">
+                        <div class="course-author flex flex-wrap align-items-center mt-3">
+                          
+
+                            <div class="author-wrap">
+                              </div>
+                            </div><!-- .author-wrap -->
+                        </div><!-- .course-author -->
+
+                   
+                        </div><!-- .course-students -->
+
+                        <div class="buy-course mt-3">
+                            <a class="btn" href="/student.entroll?id={{$courses->id}}">Entroll Now</a>
+                        </div><!-- .buy-course -->
+                    </div><!-- .course-info -->
+
+                    <div class="single-course-cont-section">
+                        
+
+                       
+
+             
+
+                        <h2>Description</h2>
+
+                        <p>{{$courses->description}}</p>
+                        
+                        
+
+                        <h2>Who is the target audience?</h2>
+
+                        <ul class="p-0 m-0 black-doted">
+                            <li>Competent and confident with using a computer.</li>
+                            <li>Artists who want to bring their assets alive in a game engine.</li>
+                            <li>Developers who want to re-skill across to coding.</li>
+                            <li>Complete beginners who are willing to work hard.</li>
+                            <li>Existing programmers who want to re-skill to game development.</li>
+                        </ul>
+                    </div>
+
+                   
+                            </div>
+                        </div><!-- .entry-contents -->
+                    </div><!-- .single-course-accordion-cont  -->
+                    @endforeach
+                   
+                                    </div><!-- .course-content-wrap -->
+                                </div><!-- .course-content -->
+                            </div><!-- .col -->
+
+                           
+                                    </div><!-- .course-content-wrap -->
+                                </div><!-- .course-content -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .related-course -->
+                </div><!-- .single-course-wrap -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+
+    
+                        </div><!-- .footer-bar-nav -->
+                    </div><!-- .col-12 -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .footer-bar -->
+    </footer><!-- .site-footer -->
+
+    <script type='text/javascript' src='students/js/jquery.js'></script>
+    <script type='text/javascript' src='students/js/swiper.min.js'></script>
+    <script type='text/javascript' src='students/js/masonry.pkgd.min.js'></script>
+    <script type='text/javascript' src='students/js/jquery.collapsible.min.js'></script>
+    <script type='text/javascript' src='students/js/custom.js'></script>
+
+</body>
+</html>
+@endif
